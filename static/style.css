@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 100px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a, .quick-scan-button {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+}
+
+.translate-icon img {
+    width: 18px;
+}
+
+.quick-scan-button {
+    padding: 10px 20px;
+    background-color: #e3f2fd;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-scan-button:hover {
+    background-color: #b3e5fc;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+}
+
+.doctor-container {
+    position: relative;
+    z-index: 1;
+    margin-right: 20px;
+}
+
+.doctor-image {
+    width: 200px;
+    height: auto;
+}
+
+.quote-box {
+    background-color: #8c8c8c;
+    padding: 30px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.quote-box h1 {
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Media Layout */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .doctor-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .doctor-image {
+        width: 150px;
+    }
+
+    .quote-box {
+        max-width: 300px;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .quote-box h1 {
+        font-size: 20px;
+    }
+
+    .quick-scan-button {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
