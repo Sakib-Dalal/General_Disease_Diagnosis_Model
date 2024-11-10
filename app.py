@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'sdakq3wjp29q3jerwo349u1205p4ejfoq8234m0nf380623456245njdkfsgh'
 
 # Load Model
-with open('model_2000.pkl', 'rb') as file:
+with open('../model_2000.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Home Page
