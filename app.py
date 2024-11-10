@@ -1,11 +1,23 @@
 from flask import Flask, render_template, request, session
 import pandas as pd
 import pickle
+import ollama
 
 # Flask App
 app = Flask(__name__)
 
 app.secret_key = 'sdakq3wjp29q3jerwo349u1205p4ejfoq8234m0nf380623456245njdkfsgh'
+
+# ollama
+ollama.chat(model='llama3.1', messages=None)
+
+messages = [
+    {
+        'role': 'system',
+        'content': 'Note: You should response in only 5 words and Faster and Faster response. Give Fast Reponce and Short! You are a guest, and the user will tell you a topic to debate on. You can debate on that topic with the user. Try to give fast and short responses to the user'
+    }
+]
+
 
 # Load Model
 with open('../model_2000.pkl', 'rb') as file:
