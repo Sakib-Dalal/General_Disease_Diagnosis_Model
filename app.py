@@ -14,7 +14,7 @@ ollama.chat(model='llama3.1', messages=None)
 messages = [
     {
         'role': 'system',
-        'content': 'Note: You should response in only 5 words and Faster and Faster response. Give Fast Reponce and Short! You are a guest, and the user will tell you a topic to debate on. You can debate on that topic with the user. Try to give fast and short responses to the user'
+        'content': 'you are an ai based health consultant. we provide you the disease and you will provide consultant based on that '
     }
 ]
 
@@ -41,7 +41,13 @@ def predict():
     
     predictions = model.predict(input_data)
     disease = predictions[0]
-    
+
+    ollama_input = [{'role': 'user', 'content': f"the disease is {disease}, age is {age}, weight is {weight}, blood pressure {bloodPressure},height is {height} give health consultant."}]
+    response = ollama.chat(model='llama3.1', messages=ollama_input)
+
+    # just pass this to index.html
+    print(f"ollama response: {response}") 
+
     return render_template("index.html", disease = disease)
 
 if __name__ == "__main__":
