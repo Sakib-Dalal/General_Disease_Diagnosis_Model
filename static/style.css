@@ -6,9 +6,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 header {
@@ -71,7 +68,7 @@ main {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Evenly spaces rows to cover 100vh */
+    justify-content: space-around;
     opacity: 0.3;
     font-size: 24px;
     color: #000;
@@ -82,7 +79,7 @@ main {
 .scroll-line {
     white-space: nowrap;
     display: inline-block;
-    width: 100%; /* Ensures it spans the width of the viewport */
+    width: 100%;
     animation: scroll 20s linear infinite;
 }
 
@@ -156,7 +153,125 @@ main {
     .quick-scan-button {
         display: block;
         margin: 0 auto;
-        padding: 10px 20px;
+        padding: 6px 10px;
         font-size: 16px;
     }
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.sidebar {
+    background: #D3E7EE;
+    width: 300px;
+    margin: 1%;
+    border-radius: 20px;
+}
+
+.sidebar .card {
+    padding: 10px 20px;
+
+    margin: 5%;
+    border-radius: 20px;
+    background: #b5c8cf;
+
+}
+
+.card h2 {
+    font-size: 1.2rem;
+}
+
+.card .inercard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50%;
+}
+
+.card input[type=text] {
+    height: 30px;
+    width: 10%;
+    border: none;
+    border-radius: 4px;
+}
+
+.card img {
+    height: 6vh !important;
+}
+
+.presentation {
+    margin: 1%;
+    width: 70%;
+    background: #D3E7EE;
+    border-radius: 20px;
+}
+
+.presentation .inerpresentaion .graph div {
+    height: 200px;
+    background: #b7e7f9;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.presentation .inerpresentaion .graph {
+
+    width: 50%;
+    margin: 1%;
+    padding: 1%;
+    background: #b5c8cf;
+    border-radius: 20px;
+}
+
+.presentation .inerpresentaion {
+    display: flex;
+    border-radius: 20px;
+    margin: 10px;
+    flex-wrap: wrap;
+
+}
+
+.presentation .inerpresentaion .Disease {
+    background-color: #b5c8cf;
+    width: 300px;
+    border-radius: 20px;
+    margin: 1%;
+    padding: 1%;
+}
+
+.presentation .AIgenerated {
+    margin: 2%;
+    background: #b5c8cf;
+    padding: 2%;
+    border-radius: 20px;
+}
+
+/* Add relative positioning to the parent container */
+/* Style for the <p> and individual lines */
+.presentation .AIgenerated p {
+    position: relative;
+}
+
+.presentation .AIgenerated p .line {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    animation: slide 12s steps(1) infinite;
+    margin-bottom: 5px;
+    /* Adds a small gap between lines */
+}
+
+.sidebar form .btn:hover {
+    cursor: pointer;
+    background: #5d7bab;
+    color: white;
+}
+
+.sidebar form .btn {
+    margin: 10px 20px;
+    border: none;
+    color: aliceblue;
+    background: #6c8dc2;
 }
