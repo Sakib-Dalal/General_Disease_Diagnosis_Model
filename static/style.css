@@ -64,7 +64,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 98.6vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@ main {
     font-size: 24px;
     color: #000;
     overflow: hidden;
-    padding: 20px;
+    padding: 30px;
 }
 
 .scroll-line {
@@ -175,18 +175,17 @@ section {
 
 .sidebar {
     background: #D3E7EE;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     margin: 1%;
     border-radius: 20px;
 }
 
 .sidebar .card {
     padding: 10px 20px;
-
-    margin: 5%;
+    margin: 10px;
     border-radius: 20px;
     background: #b5c8cf;
-
 }
 
 .card h2 {
@@ -201,7 +200,7 @@ section {
 
 .card input[type=text] {
     height: 30px;
-    width: 10%;
+    width: 100%;
     border: none;
     border-radius: 4px;
 }
@@ -212,7 +211,8 @@ section {
 
 .presentation {
     margin: 1%;
-    width: 70%;
+    width: 100%;
+    max-width: 70%;
     background: #D3E7EE;
     border-radius: 20px;
 }
@@ -225,8 +225,7 @@ section {
 }
 
 .presentation .inerpresentaion .graph {
-
-    width: 50%;
+    width: 100%;
     margin: 1%;
     padding: 1%;
     background: #b5c8cf;
@@ -238,12 +237,12 @@ section {
     border-radius: 20px;
     margin: 10px;
     flex-wrap: wrap;
-
 }
 
 .presentation .inerpresentaion .Disease {
     background-color: #b5c8cf;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 20px;
     margin: 1%;
     padding: 1%;
@@ -283,4 +282,115 @@ section {
     border: none;
     color: aliceblue;
     background: #6c8dc2;
+    width: 30%;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .sidebar {
+        max-width: 100%;
+        margin: 20px 20px;
+    }
+
+    .presentation {
+        max-width: 100%;
+        margin: 0px 20px;
+    }
+
+    .presentation .inerpresentaion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .presentation .inerpresentaion .Disease,
+    .presentation .inerpresentaion .graph {
+        margin: 20px 0px;
+
+        width: 100%;
+        max-width: 100%;
+    }
+    .presentation .inerpresentaion .Disease{
+        background: none;
+    }
+    .sidebar .card {
+        line-height: 40px;
+        margin: 40px;
+        padding: 10px 10px;
+        height: 170px;
+    }
+    .card input[type=text]{
+        width: 10%;
+    }
+   .card .inercard{
+    gap: 60%;
+
+   }
+   section .sidebar form .btn{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 20%;
+    margin: 45px ;
+   }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .presentation {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .presentation .inerpresentaion .graph div {
+        height: 150px;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+    }
+
+   
+
+    .presentation .AIgenerated {
+        padding: 1%;
+    }
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-container {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
+
+.circle-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.animate-circle {
+    transition: stroke-dashoffset 1s ease-out;
+    transition-delay: 2s;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    font-size: 16px;
+    font-weight: bold;
 }

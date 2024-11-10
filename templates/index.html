@@ -22,13 +22,20 @@
 
     <div class="background-text">
         <div class="scroll-line left">
-            Diabetes Hypertension Arthritis Asthma COVID-19 Migraines Heart Disease Influenza Kidney Disease Allergies Anxiety Depression Skin Conditions Infections Obesity Thyroid Disorders Digestive Issues
+            Diabetes Hypertension Arthritis Asthma COVID-19 Migraines Heart Disease Influenza Kidney Disease Allergies
+            Anxiety Depression Skin Conditions Infections Obesity Thyroid Disorders Digestive Issues
         </div>
         <div class="scroll-line right">
-            Cancer Heartburn Stroke High Blood Pressure Bone Health Skin Conditions Lung Disorders Hormonal Imbalance Infections Nutrition Eye Conditions Muscular Disorders Chronic Pain Mental Health Issues
+            Cancer Heartburn Stroke High Blood Pressure Bone Health Skin Conditions Lung Disorders Hormonal Imbalance
+            Infections Nutrition Eye Conditions Muscular Disorders Chronic Pain Mental Health Issues
         </div>
         <div class="scroll-line left">
-            Wellness Therapy Nutrition Mental Health Fitness Immunity Respiratory Disorders Liver Health Pregnancy Dental Care Physical Rehabilitation Neurological Issues Cardiovascular Health Digestive Health
+            Wellness Therapy Nutrition Mental Health Fitness Immunity Respiratory Disorders Liver Health Pregnancy
+            Dental Care Physical Rehabilitation Neurological Issues Cardiovascular Health Digestive Health
+        </div>
+        <div class="scroll-line right">
+            Wellness Therapy Nutrition Mental Health Fitness Immunity Respiratory Disorders Liver Health Pregnancy
+            Dental Care Physical Rehabilitation Neurological Issues Cardiovascular Health Digestive Health
         </div>
     </div>
 
@@ -91,7 +98,22 @@
             <div class="inerpresentaion">
                 <div class="graph">
                     <h2>Diagnose Graph</h2>
-                    <div>Here the actual graph</div>
+                    <div class="center-flex">
+                        <div class="circle-container">
+                            <svg class="circle-svg" viewBox="0 0 36 36">
+                                <!-- Background circle -->
+                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#d1d5db" stroke-width="4" />
+
+                                <!-- Foreground circle with animation -->
+                                <circle id="fineScoreCircle" cx="18" cy="18" r="15.9155" fill="none" stroke="#00293B"
+                                    stroke-width="4" stroke-dasharray="100, 100" stroke-dashoffset="100"
+                                    stroke-linecap="round" class="animate-circle"></circle>
+                            </svg>
+                            <div class="center-text">
+                                <!-- {{ session.fineScore }}% -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="Disease">
                     <h2>Disease</h2>
@@ -104,7 +126,7 @@
             </div>
         </div>
     </section>
-                
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script>
@@ -123,6 +145,19 @@
             alert("Language switch coming soon!");
         });
 
+    </script>
+
+    <script>
+        // This function will be executed when the window is fully loaded
+        window.onload = function () {
+            const fineScoreValue = {{ session.fineScore }
+        }; // Assuming session.fineScore is a number
+        const fineScoreCircle = document.getElementById('fineScoreCircle');
+
+        if (fineScoreCircle) {
+            fineScoreCircle.style.strokeDashoffset = 100 - fineScoreValue;
+        }
+    };
     </script>
 </body>
 
