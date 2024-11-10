@@ -67,16 +67,36 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around; /* Evenly spaces rows to cover 100vh */
     opacity: 0.3;
-    font-size: 18px;
+    font-size: 24px;
     color: #000;
-    text-align: center;
+    overflow: hidden;
     padding: 20px;
+}
+
+.scroll-line {
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%; /* Ensures it spans the width of the viewport */
+    animation: scroll 20s linear infinite;
+}
+
+.left {
+    animation-direction: normal;
+}
+
+.right {
+    animation-direction: reverse;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .doctor-container {
