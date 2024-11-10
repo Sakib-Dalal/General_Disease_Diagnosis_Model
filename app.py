@@ -2,18 +2,19 @@ from flask import Flask, render_template, request
 import pandas as pd
 import pickle
 
-# Flask App Here
+# Flask App
 app = Flask(__name__)
+
+# Load Model
+with open('model_2000.pkl', 'rb') as file:
+    model = pickle.load(file)
 
 # Home Page
 @app.route('/')
 def home():
     return render_template("index.html")
 
-# Load Model
-with open('model_2000.pkl', 'rb') as file:
-    model = pickle.load(file)
-
+# Prediction Route
 @app.route('/predict', methods=['POST'])
 def predict():
     height = float(request.form['height'])
@@ -24,15 +25,9 @@ def predict():
     input_data = pd.DataFrame([[height, weight, age, bloodPressure]], columns=['Height_cm', 'Weight_kg', 'Age', 'Blood_Pressure_mmHg'])
     
     predictions = model.predict(input_data)
+    disease = predictions[0]
 
-    if isinstance(predictions, pd.DataFrame):
-        disease = predictions['Disease'][0]
-        fineScore = predictions['Fine Score'][0]
-    else:
-        disease = predictions[0][0]
-        fineScore = predictions[0][1]
-
-    return f"The predicted results are: Disease = {disease}, Fine Score = {fineScore}"
+    return f"The predicted disease is: {disease}"
 
 if __name__ == "__main__":
     app.run(debug=True, port="80", host="0.0.0.0")
