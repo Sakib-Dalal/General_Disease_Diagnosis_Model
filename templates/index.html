@@ -98,26 +98,10 @@
             <div class="inerpresentaion">
                 <div class="graph">
                     <h2>Diagnose Graph</h2>
-                    <div class="center-flex">
-                        <div class="circle-container">
-                            <svg class="circle-svg" viewBox="0 0 36 36">
-                                <!-- Background circle -->
-                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#d1d5db" stroke-width="4" />
-
-                                <!-- Foreground circle with animation -->
-                                <circle id="fineScoreCircle" cx="18" cy="18" r="15.9155" fill="none" stroke="#00293B"
-                                    stroke-width="4" stroke-dasharray="100, 100" stroke-dashoffset="100"
-                                    stroke-linecap="round" class="animate-circle"></circle>
-                            </svg>
-                            <div class="center-text">
-                                <!-- {{ session.fineScore }}% -->
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="Disease">
                     <h2>Disease</h2>
-                    <p id="Disease">Disease</p>
+                    <p id="Disease">{{ session.disease }}</p>
                 </div>
             </div>
             <div class="AIgenerated">
@@ -145,18 +129,6 @@
             alert("Language switch coming soon!");
         });
 
-    </script>
-
-    <script>
-        window.onload = function () {
-            const fineScoreValue = {{ session.fineScore }}
-        };
-        const fineScoreCircle = document.getElementById('fineScoreCircle');
-
-        if (fineScoreCircle) {
-            fineScoreCircle.style.strokeDashoffset = 100 - fineScoreValue;
-        }
-    };
     </script>
 </body>
 
