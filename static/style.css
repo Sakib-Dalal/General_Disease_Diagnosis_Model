@@ -92,6 +92,7 @@ main {
 
 .quote-box {
     background-color: #8c8c8c;
+    opacity: 0.8;
     padding: 30px;
     border-radius: 10px;
     z-index: 1;
