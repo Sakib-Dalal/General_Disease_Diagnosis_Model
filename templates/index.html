@@ -51,43 +51,43 @@
 
     <section>
         <div class="sidebar">
-            <form action="">
+            <form action="/predict" method="post">
                 <div class="card">
                     <h2>Height</h2>
-                    <p>Enter your Accurate height in feets.</p>
+                    <p><label for="height">Enter height in CM</label></p>
                     <div class="inercard">
-                        <input type="text" placeholder="5.5">
+                        <input type="text" placeholder="5.5" id="height" name="height">
                         <img src="/static/images/healthicons_height (1).png" alt="">
                     </div>
                 </div>
 
                 <div class="card">
                     <h2>Age</h2>
-                    <p>Enter your Accurate Age.</p>
+                    <p><label for="age">Enter Age</label></p>
                     <div class="inercard">
-                        <input type="text" placeholder="52">
+                        <input type="text" placeholder="52" id="age" name="age">
                         <img src="/static/images/healthicons_old-man.png" alt="">
                     </div>
                 </div>
 
                 <div class="card">
                     <h2>Weight</h2>
-                    <p>Enter your Accurate Weight in KiloGrams.</p>
+                    <p><label for="weight">Enter Weight KG</label></p>
                     <div class="inercard">
-                        <input type="text" placeholder="68">
+                        <input type="text" placeholder="68" id="weight" name="weight">
                         <img src="/static/images/icon-park-outline_weight.png" alt="">
                     </div>
                 </div>
 
                 <div class="card">
                     <h2>Blood Pressure</h2>
-                    <p>Enter your Accurate Blood Pressure.</p>
+                    <p><label for="bloodPressure">Enter Blood Pressure</label></p>
                     <div class="inercard">
-                        <input type="text" placeholder="95">
+                        <input type="text" placeholder="95" id="bloodPressure" name="bloodPressure">
                         <img src="/static/images/Vector.png" alt="">
                     </div>
                 </div>
-                <button class="btn" type="button" onclick="startTyping()"
+                <button class="btn" type="submit" onclick="startTyping()"
                     style="height: 30px; border-radius: 5px;">Analyze</button>
 
             </form>
@@ -148,10 +148,9 @@
     </script>
 
     <script>
-        // This function will be executed when the window is fully loaded
         window.onload = function () {
-            const fineScoreValue = {{ session.fineScore }
-        }; // Assuming session.fineScore is a number
+            const fineScoreValue = {{ session.fineScore }}
+        };
         const fineScoreCircle = document.getElementById('fineScoreCircle');
 
         if (fineScoreCircle) {
