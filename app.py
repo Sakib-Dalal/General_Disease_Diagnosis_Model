@@ -10,7 +10,6 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-# Load Model
 with open('model_2000.pkl', 'rb') as file:
     model = pickle.load(file)
 
@@ -25,13 +24,10 @@ def predict():
     
     predictions = model.predict(input_data)
 
-    if isinstance(predictions, pd.DataFrame):
-        disease = predictions['Disease'][0]
-        fineScore = predictions['Fine Score'][0]
-    else:
-        disease = predictions[0][0]
-        fineScore = predictions[0][1]
+    disease = predictions[0][0]
+    fineScore = predictions[0][1]
 
+    # Return both results as a string
     return f"The predicted results are: Disease = {disease}, Fine Score = {fineScore}"
 
 if __name__ == "__main__":
