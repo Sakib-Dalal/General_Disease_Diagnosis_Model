@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareXpert</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -18,8 +21,22 @@
     </header>
 
     <div class="background-text">
-        <p><marquee behavior="" direction="left">Diabetes Hypertension Arthritis Asthma COVID-19 Migraines Heart Disease Influenza Kidney Disease
-            Allergies Anxiety Depression Skin Conditions Infections Obesity Thyroid Disorders Digestive Issues</marquee></p>
+        <div class="scroll-line left">
+            Diabetes Hypertension Arthritis Asthma COVID-19 Migraines Heart Disease Influenza Kidney Disease Allergies
+            Anxiety Depression Skin Conditions Infections Obesity Thyroid Disorders Digestive Issues
+        </div>
+        <div class="scroll-line right">
+            Cancer Heartburn Stroke High Blood Pressure Bone Health Skin Conditions Lung Disorders Hormonal Imbalance
+            Infections Nutrition Eye Conditions Muscular Disorders Chronic Pain Mental Health Issues
+        </div>
+        <div class="scroll-line left">
+            Wellness Therapy Nutrition Mental Health Fitness Immunity Respiratory Disorders Liver Health Pregnancy
+            Dental Care Physical Rehabilitation Neurological Issues Cardiovascular Health Digestive Health
+        </div>
+        <div class="scroll-line right">
+            Wellness Therapy Nutrition Mental Health Fitness Immunity Respiratory Disorders Liver Health Pregnancy
+            Dental Care Physical Rehabilitation Neurological Issues Cardiovascular Health Digestive Health
+        </div>
     </div>
 
     <main>
@@ -32,11 +49,115 @@
         </div>
     </main>
 
+    <section>
+        <div class="sidebar">
+            <form action="">
+                <div class="card">
+                    <h2>Height</h2>
+                    <p>Enter your Accurate height in feets.</p>
+                    <div class="inercard">
+                        <input type="text" placeholder="5.5">
+                        <img src="/static/images/healthicons_height (1).png" alt="">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Age</h2>
+                    <p>Enter your Accurate Age.</p>
+                    <div class="inercard">
+                        <input type="text" placeholder="52">
+                        <img src="/static/images/healthicons_old-man.png" alt="">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Weight</h2>
+                    <p>Enter your Accurate Weight in KiloGrams.</p>
+                    <div class="inercard">
+                        <input type="text" placeholder="68">
+                        <img src="/static/images/icon-park-outline_weight.png" alt="">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Blood Pressure</h2>
+                    <p>Enter your Accurate Blood Pressure.</p>
+                    <div class="inercard">
+                        <input type="text" placeholder="95">
+                        <img src="/static/images/Vector.png" alt="">
+                    </div>
+                </div>
+                <button class="btn" type="button" onclick="startTyping()"
+                    style="height: 30px; border-radius: 5px;">Analyze</button>
+
+            </form>
+        </div>
+
+        <!-- Graphs are presented here -->
+        <div class="presentation">
+            <div class="inerpresentaion">
+                <div class="graph">
+                    <h2>Diagnose Graph</h2>
+                    <div class="center-flex">
+                        <div class="circle-container">
+                            <svg class="circle-svg" viewBox="0 0 36 36">
+                                <!-- Background circle -->
+                                <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#d1d5db" stroke-width="4" />
+
+                                <!-- Foreground circle with animation -->
+                                <circle id="fineScoreCircle" cx="18" cy="18" r="15.9155" fill="none" stroke="#00293B"
+                                    stroke-width="4" stroke-dasharray="100, 100" stroke-dashoffset="100"
+                                    stroke-linecap="round" class="animate-circle"></circle>
+                            </svg>
+                            <div class="center-text">
+                                <!-- {{ session.fineScore }}% -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Disease">
+                    <h2>Disease</h2>
+                    <p id="Disease">Disease</p>
+                </div>
+            </div>
+            <div class="AIgenerated">
+                <h3>AI Suggetion</h3>
+                <p><span class="auto-type"></span></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        function startTyping() {
+            var typed = new Typed(".auto-type", {
+                strings: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. In fuga repudiandae deleniti ea eius animi ipsa ipsam cumque provident enim voluptatem officiis eos excepturi aut cum quia doloribus sint, non, culpa labore. Perferendis quos velit voluptatibus unde iste harum quasi temporibus consectetur, amet, quisquam hic vel tenetur adipisci culpa! Iste."],
+                typeSpeed: 5,
+                backSpeed: 150,
+                looped: true
+            })
+        }
+    </script>
+
     <script>
         document.querySelector('.translate-icon').addEventListener('click', () => {
             alert("Language switch coming soon!");
         });
 
+    </script>
+
+    <script>
+        // This function will be executed when the window is fully loaded
+        window.onload = function () {
+            const fineScoreValue = {{ session.fineScore }
+        }; // Assuming session.fineScore is a number
+        const fineScoreCircle = document.getElementById('fineScoreCircle');
+
+        if (fineScoreCircle) {
+            fineScoreCircle.style.strokeDashoffset = 100 - fineScoreValue;
+        }
+    };
     </script>
 </body>
 
